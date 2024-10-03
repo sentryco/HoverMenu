@@ -12,10 +12,10 @@ import UIKit
  * - Fixme: ⚠️️ Rename to MenuItemModel?
  */
 public struct MenuItem {
-   let title: String
-   let action: () -> Void
-   let iconName: String
-   let keyboardShortCut: String?
+   public let title: String
+   public let action: () -> Void
+   public let iconName: String
+   public let keyboardShortCut: String?
    /**
     * Initializes a `MenuItem` with the given properties.
     * - Description: This initializer creates a new `MenuItem` instance with the specified title, action to be executed upon selection, icon representation, and an optional keyboard shortcut for quick access.
