@@ -2,7 +2,7 @@
 
 HoverMenu is a Swift package that provides a classic hover menu implementation for both iOS and macOS platforms. It offers a unified API to create context menus that adapt to the specific UI patterns of each operating system. 
 
-> **Note:** For iOS the menu is horizontally arranged (the classic look from UIKit that currently is not available in SwiftUI) and for macOS the menu is vertically arranged. 
+> :memo: **Note:** For iOS, the menu is horizontally arranged (the classic look from UIKit that currently is not available in SwiftUI), and for macOS, the menu is vertically arranged.
 
 ## Features
 
