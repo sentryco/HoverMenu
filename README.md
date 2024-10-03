@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/HoverMenu/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HoverMenu/actions/workflows/Tests.yml)
+
 # HoverMenu
 
 HoverMenu is a Swift package that provides a classic hover menu implementation for both iOS and macOS platforms. It offers a unified API to create context menus that adapt to the specific UI patterns of each operating system. 
