@@ -17,7 +17,7 @@ extension MenuItems {
     * - Returns: A view containing buttons for each `MenuItem` in the collection.
     */
    @ViewBuilder // - Fixme: ⚠️️ this might not be needed?
-   internal func buttons(showMenu: Binding<Bool>? = nil) -> some View {
+   public func buttons(showMenu: Binding<Bool>? = nil) -> some View {
       ForEachElementAndIndex(self) { (_ index: Int, _ menuItem: MenuItem) in
          self.item( // Call the item function with the menuItem, index, and showMenu
             menuItem: menuItem, // The menuItem to be displayed

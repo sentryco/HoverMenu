@@ -60,5 +60,5 @@ dependencies: [
 
 ### Todo: 
 
-- Add preview for macOS
+- Add preview for macOS  
 - Clean up the code 
