@@ -12,16 +12,16 @@ extension EditMenu {
     * - Note: we can't make extension for gesture delegate. because @objc
     * - Fixme: ⚠️️ it might be possible to also use shouldBeRequiredToFailBy istead of the cancelLongPressGesture etc. try to refactor this in the future. might be cleaner
     */
-   class Coordinator: NSObject, UIEditMenuInteractionDelegate, UIGestureRecognizerDelegate {
-      let editMenu: EditMenu // The EditMenu instance
-      let uiView = UIView() // The UIView instance
-      var interaction: UIEditMenuInteraction? // The UIEditMenuInteraction instance
+   internal class Coordinator: NSObject, UIEditMenuInteractionDelegate, UIGestureRecognizerDelegate {
+      internal let editMenu: EditMenu // The EditMenu instance
+      internal let uiView = UIView() // The UIView instance
+      internal var interaction: UIEditMenuInteraction? // The UIEditMenuInteraction instance
       private var isPresent = false // keeps track of wheter the menu is showing or hiding
       private var cancelLongPressGesture: Bool = false
       deinit {
          // print("EditMenu.Coordinator.deinit - \(#function)") // not sure if needed ?
       }
-      init(_ editMenu: EditMenu) {
+      internal init(_ editMenu: EditMenu) {
          self.editMenu = editMenu
       }
       /**
@@ -29,19 +29,19 @@ extension EditMenu {
        * - Description: This method is responsible for displaying the edit menu. It first checks if the menu is already being presented. If not, it calculates the point to present the menu, creates a configuration for the menu, and then presents the menu with the calculated configuration.
        * - Fixme: ⚠️️ the presentEditMenu doesnt present from the exact: midY, i have no idea why
        */
-      func showMenu() {
+      internal func showMenu() {
          guard isPresent == false else { Swift.print("already presenting"); return } // Check if the menu is already being presented, if so, return
-//         Swift.print("uiView.bounds: \(uiView.bounds)")
-//         Swift.print("uiView.frame:  \(uiView.frame)")
+         // Swift.print("uiView.bounds: \(uiView.bounds)")
+         // Swift.print("uiView.frame:  \(uiView.frame)")
          let pointInView = CGPoint( // Calculate the point to present the menu
             x: uiView.bounds.midX,
             y: uiView.frame.midY
          )
-//         Swift.print("pointInView:  \(pointInView)")
-//         let pointInWindow = uiView.convert(pointInView, to: uiView.superview) // Convert the point to the window's coordinate system
-//         Swift.print("pointInWindow:  \(pointInWindow)")
-//         Swift.print("uiView.bounds.midY: \(uiView.bounds.midY)")
-//         Swift.print("point: \(point)")
+         // Swift.print("pointInView:  \(pointInView)")
+         // let pointInWindow = uiView.convert(pointInView, to: uiView.superview) // Convert the point to the window's coordinate system
+         // Swift.print("pointInWindow:  \(pointInWindow)")
+         // Swift.print("uiView.bounds.midY: \(uiView.bounds.midY)")
+         // Swift.print("point: \(point)")
          let configuration = UIEditMenuConfiguration( // Create a configuration for the menu
             identifier: "EditMenuInteractionIdentifier", // Set the identifier for the menu
             sourcePoint: pointInView // Set the source point for the menu
@@ -57,11 +57,11 @@ extension EditMenu {
        *   - suggestedActions: An array of UIMenuElement representing the suggested actions.
        * - Returns: A UIMenu instance or nil if the menu cannot be created.
        */
-      func editMenuInteraction(_ interaction: UIEditMenuInteraction, menuFor configuration: UIEditMenuConfiguration, suggestedActions: [UIMenuElement]) -> UIMenu? {
+      internal func editMenuInteraction(_ interaction: UIEditMenuInteraction, menuFor configuration: UIEditMenuConfiguration, suggestedActions: [UIMenuElement]) -> UIMenu? {
          // var actions = suggestedActions
          // Creates a UIMenu instance with the actions provided by the EditMenu instance
          let customMenu = UIMenu(
-//            identifier: .init(""), - Fixme: ⚠️️ maybe set this to: InterfaceID.menu ?
+            // identifier: .init(""), - Fixme: ⚠️️ maybe set this to: InterfaceID.menu ?
             options: .displayInline, // Set the options for the UIMenu to display inline
             children: editMenu.actions()
          )
@@ -77,7 +77,7 @@ extension EditMenu {
        *   - configuration: The UIEditMenuConfiguration for the menu.
        *   - animator: The UIEditMenuInteractionAnimating instance that manages the animation of the menu presentation.
        */
-      func editMenuInteraction(_ interaction: UIEditMenuInteraction, willPresentMenuFor configuration: UIEditMenuConfiguration, animator: UIEditMenuInteractionAnimating) {
+      internal func editMenuInteraction(_ interaction: UIEditMenuInteraction, willPresentMenuFor configuration: UIEditMenuConfiguration, animator: UIEditMenuInteractionAnimating) {
          editMenu.onPresent?() // callback for swiftui
          isPresent = true // Sets the isPresent flag to true
       }
@@ -89,7 +89,7 @@ extension EditMenu {
        *   - configuration: The UIEditMenuConfiguration for the menu.
        *   - animator: The UIEditMenuInteractionAnimating instance that manages the animation of the menu dismissal.
        */
-      func editMenuInteraction(_ interaction: UIEditMenuInteraction, willDismissMenuFor configuration: UIEditMenuConfiguration, animator: UIEditMenuInteractionAnimating) {
+      internal func editMenuInteraction(_ interaction: UIEditMenuInteraction, willDismissMenuFor configuration: UIEditMenuConfiguration, animator: UIEditMenuInteractionAnimating) {
          editMenu.onDismiss?() // callback for swiftui
          isPresent = false // Sets the isPresent flag to false
       }
@@ -98,7 +98,7 @@ extension EditMenu {
        * - Description: This method is triggered when a touch event is detected on the UIView. It checks the state of the gesture recognizer to determine if the touch event has ended. If it has, it calls the showMenu() method to present the edit menu.
        * - Parameter sender: The `UILongPressGestureRecognizer` that triggered the action.
        */
-      @objc func touched(_ sender: UILongPressGestureRecognizer) {
+      @objc internal func touched(_ sender: UILongPressGestureRecognizer) {
          // Swift.print("touched")
          if sender.state == .began { // onTapDown
             // Nothing
@@ -110,7 +110,7 @@ extension EditMenu {
        * Boilerplate
        * - Note: needed to fix the scrolling / tap conflict that would occure in lists
        */
-      @objc func panDetected(_ sender: UIPanGestureRecognizer) {
+      @objc internal func panDetected(_ sender: UIPanGestureRecognizer) {
          // Swift.print("panDetected")
          // Handle pan gesture
          if sender.state == .began { // onTapDown
@@ -129,7 +129,7 @@ extension EditMenu {
        *   - otherGestureRecognizer: Another gesture recognizer that is attempting to recognize a gesture simultaneously.
        * - Returns: A Boolean value indicating whether the gesture recognizer should recognize the gesture simultaneously with the other gesture recognizer. Returns true to allow simultaneous recognition; otherwise, false.
        */
-      func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+      internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
           true // Allow simultaneous gesture recognition
       }
    }

@@ -10,7 +10,7 @@ internal struct ForEachElementAndIndex<Data, Content>: View where Data: RandomAc
     * The data to iterate over.
     * - Description: The collection of data elements that the ForEachElementAndIndex view will iterate over to create views with both the index and the element.
     */
-   var data: Data
+   internal var data: Data
    /**
     * A view builder that takes an index and element of the data collection and returns a view.
     * - Description: A closure that takes the index of an element and the element itself from the data collection and returns a corresponding view. This closure is called for each element in the collection, providing both the element and its index to facilitate custom view creation that may depend on the position of the element within the collection.
@@ -18,7 +18,7 @@ internal struct ForEachElementAndIndex<Data, Content>: View where Data: RandomAc
     *   - index: The index of the current element within the collection.
     *   - element: The current element from the data collection.
     */
-   var content: (Int, Data.Element) -> Content
+   internal var content: (Int, Data.Element) -> Content
    /**
     * Initializes a ForEachElementAndIndex instance with the specified data and content.
     * - Description: Creates an instance of ForEachElementAndIndex that can iterate over a collection and provide both the index and the element to a view builder. This allows for custom views to be generated for each item in the collection with awareness of the item's position.
