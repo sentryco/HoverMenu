@@ -61,7 +61,6 @@ dependencies: [
 ### Todo: 
 
 - Add preview for macOS  
-- Clean up the code 
 - Rename repo to PopupMenu or PopoverMenu ?
 - Refactoring and Code Cleanup
 - Platform Compatibility and Feature Parity
