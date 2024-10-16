@@ -8,7 +8,10 @@ import UIKit
 extension View {
    /**
     * Displays a context menu for both iOS and macOS platforms.
-    * - Description: This modifier adds a context menu to the view which adapts to the platform it's running on. On iOS, a tap press will trigger the menu, while on macOS, a click will show a popover with the menu items.
+    * - Description: This modifier adds a context menu to the view which adapts
+    *                to the platform it's running on. On iOS, a tap press will
+    *                trigger the menu, while on macOS, a click will show a popover
+    *                with the menu items.
     * - Note: On iOS, it uses the `editMenu` modifier to display a menu on long press.
     * - Note: On macOS, it uses a `popover` to display the menu on tap.
     * - Fixme: ⚠️️ And then we can make one universal call for iOS and macOS

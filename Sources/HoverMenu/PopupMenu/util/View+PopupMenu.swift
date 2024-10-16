@@ -1,14 +1,20 @@
 import SwiftUI
 /**
  * macOS Exclusive: Convenient Popup Menu Attachment
- * - Descrption: This extension provides a convenient way to attach a popup menu to a view on macOS. 
- *               It is particularly useful in scenarios where a context menu or a dropdown menu is needed. The `popupMenu` function simplifies the process of creating and managing popup menus by handling the overlay and positioning of the menu items.
+ * - Descrption: This extension provides a convenient way to attach a popup
+ *               menu to a view on macOS. It is particularly useful in scenarios
+ *               where a context menu or a dropdown menu is needed. The
+ *               `popupMenu` function simplifies the process of creating and
+ *               managing popup menus by handling the overlay and positioning of
+ *               the menu items.
  * - Note: This extension is used in `PopupMenuWrapper` to provide a platform-agnostic way of displaying popup menus.
  */
 extension View { // ⚠️️ was Button extension
    /**
     * Attaches a popup menu to the view.
-    * - Description: This function overlays a popup menu on the view when `isPresented` is true. The menu is populated with `menuItems` and positioned at `menuPosition` if specified.
+    * - Description: This function overlays a popup menu on the view when
+    *                `isPresented` is true. The menu is populated with `menuItems`
+    *                and positioned at `menuPosition` if specified.
     * - Parameters:
     *   - isPresented: A binding to a boolean that controls the visibility of the popup menu.
     *   - menuItems: An array of items to be displayed in the popup menu.

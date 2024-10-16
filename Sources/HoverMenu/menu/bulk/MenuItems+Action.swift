@@ -8,7 +8,9 @@ import UIKit
 extension MenuItems {
    /**
     * Converts each `MenuItem` in the collection to a `UIAction` for use in iOS.
-    * - Description: This property converts each `MenuItem` in the collection to a `UIAction` for use in iOS. It maps the title and action of each `MenuItem` to a corresponding `UIAction`.
+    * - Description: This property converts each `MenuItem` in the collection
+    *                to a `UIAction` for use in iOS. It maps the title and action
+    *                of each `MenuItem` to a corresponding `UIAction`.
     * - Note: This property is only available on iOS platforms
     * - Returns: An array of `UIAction` instances, each corresponding to a `MenuItem` in the collection.
     */

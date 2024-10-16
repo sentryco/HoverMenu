@@ -2,8 +2,13 @@ import SwiftUI
 #if os(macOS)
 import AppKit
 /**
- * If you need to use `NSMenu` from `AppKit` in a SwiftUI application, you can do so by using the `NSViewRepresentable` protocol to create a SwiftUI view that wraps an `NSView` that uses `NSMenu`
- * - Description: This structure provides a SwiftUI view that wraps an `NSView` capable of displaying an `NSMenu`. It is designed to be used within a SwiftUI application where native AppKit components are required. The `PopupMenu` struct conforms to the `NSViewRepresentable` protocol, allowing SwiftUI to interface with AppKit's menu system.
+ * - Note: If you need to use `NSMenu` from `AppKit` in a SwiftUI application, you can do so by using the `NSViewRepresentable` protocol to create a SwiftUI view that wraps an `NSView` that uses `NSMenu`
+ * - Description: This structure provides a SwiftUI view that wraps an `NSView`
+ *                capable of displaying an `NSMenu`. It is designed to be used
+ *                within a SwiftUI application where native AppKit components are
+ *                required. The `PopupMenu` struct conforms to the
+ *                `NSViewRepresentable` protocol, allowing SwiftUI to interface
+ *                with AppKit's menu system.
  * - Note: Great breakdown of #selector in swiftui: https://www.waldo.com/blog/swift-selector
  * - Note: `PopupMenuWrapper` uses this
  * - Fixme: ⚠️️ try to align the popup locaion better, more like it is in legacy etc 👈
@@ -11,7 +16,9 @@ import AppKit
 public struct PopupMenu: NSViewRepresentable {
    /**
     * A binding to a boolean that controls the visibility of the popup menu.
-    * - Description: This binding controls the visibility of the popup menu. When set to true, the popup menu is displayed. When set to false, the popup menu is hidden.
+    * - Description: This binding controls the visibility of the popup menu.
+    *                When set to true, the popup menu is displayed. When set to
+    *                false, the popup menu is hidden.
     */
    @Binding public var showMenu: Bool
    /**
@@ -27,7 +34,9 @@ public struct PopupMenu: NSViewRepresentable {
    public var menuPosition: NSPoint? = .zero
    /**
     * Make view - we have to have a "view" to prompt the menu from
-    * - Description: This function creates an NSView that represents the popup menu. The view is initially hidden to prevent unnecessary clicks.
+    * - Description: This function creates an NSView that represents the
+    *                popup menu. The view is initially hidden to prevent
+    *                unnecessary clicks.
     * - Parameter context: The context in which the NSView is being created.
     * - Returns: The NSView that represents the popup menu.
     */
@@ -38,7 +47,11 @@ public struct PopupMenu: NSViewRepresentable {
    }
    /**
     * Updates the NSView when the @State or @Binding properties change.
-    * - Description: This method is called whenever the SwiftUI state or binding variables change. It checks the value of `showMenu` and, if true, creates and displays the popup menu at the specified position. After displaying the menu, it resets `showMenu` to false to hide the menu.
+    * - Description: This method is called whenever the SwiftUI state or binding
+    *                variables change. It checks the value of `showMenu` and, if
+    *                true, creates and displays the popup menu at the specified
+    *                position. After displaying the menu, it resets `showMenu` to
+    *                false to hide the menu.
     * - Note: We can also use instead of popup: `NSMenu.popUpContextMenu(menu, with: NSApp.currentEvent ?? NSEvent(), for: nsView)`
     * - Parameters:
     *   - nsView: The NSView that the popup menu is being displayed in.
@@ -61,7 +74,10 @@ public struct PopupMenu: NSViewRepresentable {
    }
    /**
     * Creates a coordinator instance to manage the menu interactions.
-    * - Description: The coordinator acts as a bridge between the NSMenu item selection and the SwiftUI view. It contains a callback closure that is invoked when a menu item is selected, passing the title of the selected item to the provided closure.
+    * - Description: The coordinator acts as a bridge between the NSMenu item
+    *                selection and the SwiftUI view. It contains a callback closure
+    *                that is invoked when a menu item is selected, passing the
+    *                title of the selected item to the provided closure.
     * - Returns: The coordinator instance.
     */
    public func makeCoordinator() -> Coordinator {
@@ -78,25 +94,36 @@ public struct PopupMenu: NSViewRepresentable {
    }
    /**
     * Needed for selector calls
-    * - Description: The Coordinator class acts as a bridge between the NSMenu item selection and the SwiftUI view. It contains a callback closure that is invoked when a menu item is selected, passing the title of the selected item to the provided closure.
+    * - Description: The Coordinator class acts as a bridge between the NSMenu
+    *                item selection and the SwiftUI view. It contains a callback
+    *                closure that is invoked when a menu item is selected,
+    *                passing the title of the selected item to the provided
+    *                closure.
     * - Fixme: ⚠️️ we could also pass the sender to the callback, to compare obj for more accuracy etc
     */
    public class Coordinator: NSObject {
       /**
        * The callback function type alias for handling menu item selection.
-       * - Description: This is a type alias for a callback function that is triggered when a menu item is selected. The function takes a string parameter which is the title of the selected menu item.
+       * - Description: This is a type alias for a callback function that is
+       *                triggered when a menu item is selected. The function
+       *                takes a string parameter which is the title of the
+       *                selected menu item.
        * - Parameters:
        *   - title: The title of the selected menu item.
        */
       public typealias CallBack = (_ title: String) -> Void
       /**
        * A callback function that is called when a menu item is clicked.
-       * - Description: This is a callback function that gets triggered when a menu item is selected. It takes the title of the selected menu item as a parameter.
+       * - Description: This is a callback function that gets triggered when
+       *                a menu item is selected. It takes the title of the
+       *                selected menu item as a parameter.
        */
       public var callback: CallBack?
       /**
        * Handles the menu item click event by calling the callback function with the title of the clicked menu item.
-       * - Description: This method is triggered when a menu item is clicked. It retrieves the title of the clicked menu item and passes it to the callback function, if the callback is set.
+       * - Description: This method is triggered when a menu item is clicked.
+       *                It retrieves the title of the clicked menu item and passes
+       *                it to the callback function, if the callback is set.
        * - Parameters:
        *   - sender: The NSMenuItem that was clicked.
        */
@@ -111,7 +138,12 @@ public struct PopupMenu: NSViewRepresentable {
 extension PopupMenu {
    /**
     * We remake this on each menu popup, we might change title etc or disable or add / remove etc
-    * - Description: This function creates a new NSMenu instance and populates it with NSMenuItems. Each NSMenuItem is created using the title and callback function from the corresponding MenuItem in the menuItems array. The action for each NSMenuItem is set to call the menuItemClicked function in the coordinator when the menu item is clicked.
+    * - Description: This function creates a new NSMenu instance and populates
+    *                it with NSMenuItems. Each NSMenuItem is created using the
+    *                title and callback function from the corresponding MenuItem
+    *                in the menuItems array. The action for each NSMenuItem is
+    *                set to call the menuItemClicked function in the coordinator
+    *                when the menu item is clicked.
     * - Parameter context: The context in which the NSView is being created.
     * - Returns: The NSView that represents the popup menu.
     */
@@ -139,7 +171,11 @@ extension PopupMenu {
 extension NSView {
    /**
     * Mouse point
-    * - Description: This computed property returns the current mouse location relative to the view's coordinate system. It first converts the mouse location from screen coordinates to window coordinates, and then from window coordinates to the view's coordinate system.
+    * - Description: This computed property returns the current mouse location
+    *                relative to the view's coordinate system. It first converts
+    *                the mouse location from screen coordinates to window
+    *                coordinates, and then from window coordinates to the view's
+    *                coordinate system.
     * - Note: `window.mouseLocationOutsideOfEventStream` can also work as "relativeToWin" point
     */
    fileprivate var mousePoint: CGPoint {

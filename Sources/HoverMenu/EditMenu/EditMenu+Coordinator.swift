@@ -7,7 +7,10 @@ import UIKit
 extension EditMenu {
    /**
     * swiftui - bridge
-    * - Description: This class serves as a bridge between SwiftUI and UIKit, enabling the use of UIKit's UIEditMenuInteraction within a SwiftUI view. It handles the lifecycle of the UIEditMenuInteraction, responds to user gestures, and manages the presentation of the edit menu.
+    * - Description: This class serves as a bridge between SwiftUI and UIKit, 
+    *                enabling the use of UIKit's UIEditMenuInteraction within a SwiftUI view. 
+    *                It handles the lifecycle of the UIEditMenuInteraction, responds to user gestures, 
+    *                and manages the presentation of the edit menu.
     * - Note: UIGestureRecognizerDelegate is needed for the gestureRecognizer method
     * - Note: we can't make extension for gesture delegate. because @objc
     * - Fixme: ⚠️️ it might be possible to also use shouldBeRequiredToFailBy istead of the cancelLongPressGesture etc. try to refactor this in the future. might be cleaner
@@ -26,7 +29,10 @@ extension EditMenu {
       }
       /**
        * Present menu on interaction
-       * - Description: This method is responsible for displaying the edit menu. It first checks if the menu is already being presented. If not, it calculates the point to present the menu, creates a configuration for the menu, and then presents the menu with the calculated configuration.
+       * - Description: This method is responsible for displaying the edit menu. 
+       *                It first checks if the menu is already being presented. 
+       *                If not, it calculates the point to present the menu, 
+       *                creates a configuration for the menu, and then presents the menu with the calculated configuration.
        * - Fixme: ⚠️️ the presentEditMenu doesnt present from the exact: midY, i have no idea why
        */
       internal func showMenu() {
@@ -50,7 +56,10 @@ extension EditMenu {
       }
       /**
        * Builds and returns a custom UIMenu for the edit menu interaction.
-       * - Description: This method constructs a custom UIMenu for the edit menu interaction, incorporating the actions provided by the EditMenu instance. It ignores the suggested actions and focuses solely on the custom actions defined for the edit menu, ensuring a tailored menu experience.
+       * - Description: This method constructs a custom UIMenu for the edit menu interaction, 
+       *                incorporating the actions provided by the EditMenu instance. 
+       *                It ignores the suggested actions and focuses solely on the custom actions defined for the edit menu, 
+       *                ensuring a tailored menu experience.
        * - Parameters:
        *   - interaction: The UIEditMenuInteraction instance managing the interaction.
        *   - configuration: The UIEditMenuConfiguration for the menu.
@@ -71,7 +80,10 @@ extension EditMenu {
       }
       /**
        * This method is called when the edit menu is about to be presented.
-       * - Description: This method is triggered just before the edit menu is presented. It calls the onPresent callback function provided by the EditMenu instance, allowing any custom actions to be performed at this point. It also sets the isPresent flag to true, indicating that the menu is currently being presented.
+       * - Description: This method is triggered just before the edit menu is presented. 
+       *                It calls the onPresent callback function provided by the EditMenu instance, 
+       *                allowing any custom actions to be performed at this point. 
+       *                It also sets the isPresent flag to true, indicating that the menu is currently being presented.
        * - Parameters:
        *   - interaction: The UIEditMenuInteraction instance managing the interaction.
        *   - configuration: The UIEditMenuConfiguration for the menu.
@@ -83,7 +95,10 @@ extension EditMenu {
       }
       /**
        * This method is called when the edit menu is about to be dismissed.
-       * - Description: This method is triggered just before the edit menu is dismissed. It calls the onDismiss callback function provided by the EditMenu instance, allowing any custom actions to be performed at this point. It also sets the isPresent flag to false, indicating that the menu is no longer being presented.
+       * - Description: This method is triggered just before the edit menu is dismissed. 
+       *                It calls the onDismiss callback function provided by the EditMenu instance, 
+       *                allowing any custom actions to be performed at this point. 
+       *                It also sets the isPresent flag to false, indicating that the menu is no longer being presented.
        * - Parameters:
        *   - interaction: The UIEditMenuInteraction instance managing the interaction.
        *   - configuration: The UIEditMenuConfiguration for the menu.
@@ -95,7 +110,9 @@ extension EditMenu {
       }
       /**
        * Handles the touch event.
-       * - Description: This method is triggered when a touch event is detected on the UIView. It checks the state of the gesture recognizer to determine if the touch event has ended. If it has, it calls the showMenu() method to present the edit menu.
+       * - Description: This method is triggered when a touch event is detected on the UIView. 
+       *                It checks the state of the gesture recognizer to determine if the touch event has ended. 
+       *                If it has, it calls the showMenu() method to present the edit menu.
        * - Parameter sender: The `UILongPressGestureRecognizer` that triggered the action.
        */
       @objc internal func touched(_ sender: UILongPressGestureRecognizer) {
@@ -121,7 +138,8 @@ extension EditMenu {
          }
       }
       /**
-       * To avoid the gesture recognizer from interfering with other gestures such as scrolling, you can make use of the gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:) delegate method.
+       * - Description: To avoid the gesture recognizer from interfering with other gestures such as scrolling, 
+       *                you can make use of the gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:) delegate method.
        * - Note: This method allows multiple gesture recognizers to recognize gestures simultaneously.
        * - Note: To cancel the long press gesture when a scroll begins, you can modify the gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:) method to check if the other gesture recognizer is a scroll gesture (typically a UIPanGestureRecognizer used by scroll views) and return false in that case. This will prevent the long press gesture from being recognized when a scroll gesture is detected.
        * - Parameters:

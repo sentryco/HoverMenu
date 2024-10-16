@@ -28,9 +28,3 @@ import SwiftUI
       .frame(width: 200, height: 200) // needed or else button shrinks view
       #endif
 }
-//  .overlay(
-//       GeometryReader { geometry in
-//          let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
-//          Color.clear
-//    )
-// }

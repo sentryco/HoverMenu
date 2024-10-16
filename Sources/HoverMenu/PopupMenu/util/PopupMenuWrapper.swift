@@ -9,22 +9,34 @@ import SwiftUI
 public struct PopupMenuWrapper<Content: View>: View {
    /**
     * The items to be displayed in the popup menu
-    * - Description: An array of menu items that define the actions available in the popup menu. Each item is represented by a `MenuItem` instance which includes a title, an action to be performed when the item is selected, and an optional icon.
+    * - Description: An array of menu items that define the actions available
+    *                in the popup menu. Each item is represented by a `MenuItem` instance
+    *                which includes a title, an action to be performed when the item is
+    *                selected, and an optional icon.
     */   
    public let menuItems: MenuItems
    /**
     * The content to be displayed as the button or label for the popup menu.
-    * - Description: A view that serves as the interactive element triggering the popup menu. This content is typically a button or a label that, when interacted with, will present the popup menu to the user.
+    * - Description: A view that serves as the interactive element triggering
+    *                the popup menu. This content is typically a button or a label
+    *                that, when interacted with, will present the popup menu to the
+    *                user.
     */
    public let content: Content
    /**
     * A state variable to control the visibility of the popup menu.
-    * - Description: A boolean state variable that determines whether the popup menu should be visible. When `true`, the popup menu is shown; when `false`, it is hidden.
+    * - Description: A boolean state variable that determines whether the popup
+    *                menu should be visible. When `true`, the popup menu is shown;
+    *                when `false`, it is hidden.
     */
    @State private var showMenu: Bool = false
    /**
     * Initializes a PopupMenuWrapper with the given menu items and content.
-    * - Description: This initializer sets up the PopupMenuWrapper with a given set of menu items and a content view. The menu items are displayed in the popup menu when it is presented, and the content view is used as the button or label for the popup menu.
+    * - Description: This initializer sets up the PopupMenuWrapper with a given
+    *                set of menu items and a content view. The menu items are
+    *                displayed in the popup menu when it is presented, and the
+    *                content view is used as the button or label for the popup
+    *                menu.
     * - Parameters:
     *   - menuItems: The items to be displayed in the popup menu.
     *   - content: The content to be displayed as the button or label for the popup menu.
@@ -35,7 +47,11 @@ public struct PopupMenuWrapper<Content: View>: View {
    }
    /**
     * Body
-    * - Description: This is the main body of the PopupMenuWrapper. Depending on the operating system, it either creates a Menu for iOS or a Button with an attached popup menu for macOS. The content passed into the PopupMenuWrapper is used as the label for the Menu or Button.
+    * - Description: This is the main body of the PopupMenuWrapper. Depending
+    *                on the operating system, it either creates a Menu for iOS
+    *                or a Button with an attached popup menu for macOS. The
+    *                content passed into the PopupMenuWrapper is used as the
+    *                label for the Menu or Button.
     */
    @ViewBuilder // ⚠️️ Might not be needed? because OS clauses etc?
    public var body: some View {

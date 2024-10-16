@@ -63,3 +63,7 @@ dependencies: [
 - Add preview for macOS  
 - Clean up the code 
 - Rename repo to PopupMenu or PopoverMenu ?
+- Refactoring and Code Cleanup
+- Platform Compatibility and Feature Parity
+- Testing and Documentation (Improving tests and documentation can help maintain high code quality and ease future development efforts.)
+- Code Organization and Structure (Some parts of the codebase could benefit from better organization to improve readability and maintainability.)
