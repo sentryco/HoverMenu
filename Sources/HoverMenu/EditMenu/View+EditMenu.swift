@@ -4,11 +4,16 @@ import UIKit
 /**
  * This mimicks how Menu work in swift-ui. But has the look and feel of the old "edit-menu-context-button" of UIKit
  * - Abstract: Adds ability to add edit-context-menu to swiftui views
- * - Description: This extension provides SwiftUI views with the ability to present a context menu similar to UIKit's edit menu. 
- *                It allows for the addition of custom actions and handles the presentation and dismissal of the menu, 
- *                integrating UIKit's edit menu functionality within SwiftUI.
+ * - Description: This extension provides SwiftUI views with the ability to
+ *                present a context menu similar to UIKit's edit menu. It allows
+ *                for the addition of custom actions and handles the presentation
+ *                and dismissal of the menu, integrating UIKit's edit menu
+ *                functionality within SwiftUI.
  * - Important: ⚠️️ Only for iOS
- * - Note: Also works on button, but then button action is supressed if added directly. There might be a work aroun don thihs like adding a text to a button, and attaching the editmenu to the text, or adding a bindinf to the editmenu, or other workarounds
+ * - Note: Also works on button, but then button action is supressed if
+ *         added directly. There might be a workaround like adding a text
+ *         to a button, and attaching the editmenu to the text, or adding
+ *         a binding to the editmenu, or other workarounds
  * - Note: Ref: https://developer.apple.com/documentation/uikit/uieditmenuinteractiondelegate
  * - Note: Ref: https://stackoverflow.com/questions/73712955/using-uieditmenuinteraction-with-uitextview
  * - Note: Ref: menu-builder in ios16: https://stackoverflow.com/questions/73763156/customize-menu-using-uieditmenuinteraction-in-wkwebview-ios-16
@@ -31,7 +36,8 @@ import UIKit
 extension View {
    /**
     * EditMenu - The old school horizontal popover menu with a directional arrow etc
-    * - Description: Attaches an edit menu to the view with specified actions and callbacks for presentation and dismissal
+    * - Description: Attaches an edit menu to the view with specified actions
+    *                and callbacks for presentation and dismissal
     * - Parameters:
     *   - actions: The actions to be displayed in the edit menu
     *   - onPresent: Callback when the edit menu is presented

@@ -1,8 +1,11 @@
 import SwiftUI
 /**
  * For macOS and iOS
- * - Note: This struct is used in `IconMenuButton` and `OptionMenuView` to implement popup menus for various actions such as `editoptions`, `morebutton`, `addbutton`, and `options-row`.
- * - Description: This struct wraps a SwiftUI View with a popup menu, allowing for easy integration of menus into SwiftUI applications.
+ * - Note: This struct is used in `IconMenuButton` and `OptionMenuView` to
+ *         implement popup menus for various actions such as `editoptions`,
+ *         `morebutton`, `addbutton`, and `options-row`.
+ * - Description: This struct wraps a SwiftUI View with a popup menu, allowing
+ *                for easy integration of menus into SwiftUI applications.
  * - Fixme: ⚠️️ Add preview? or do we have that in the implementations? investigate etc
  * - Fixme: ⚠️️ Ask copilot how we can make an extension for this
  */

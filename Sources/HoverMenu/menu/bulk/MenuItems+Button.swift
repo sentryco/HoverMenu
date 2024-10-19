@@ -6,13 +6,14 @@ import SwiftUI
  */
 extension MenuItems {
    /**
-    * Generates a view containing buttons for each `MenuItem` in the collection, suitable for macOS platforms.
-    * - Description: This method generates a view containing buttons for each
-    *                `MenuItem` in the collection. It is designed to be used within
+    * - Abstract: Generates a view with buttons for each `MenuItem` in the
+    *             collection, suitable for macOS platforms.
+    * - Description: This method generates a view with buttons for each
+    *                `MenuItem` in the collection. It is designed for use within
     *                a macOS-specific context and provides a way to display a list
     *                of buttons corresponding to each `MenuItem`.
-    * - Note: This method is only available on macOS platforms and is designed to
-    *         be used within a macOS-specific context.
+    * - Note: This method is only available on macOS platforms and is designed
+    *         to be used within a macOS-specific context.
     * - Fixme: ⚠️️ Add icons to the list
     * - Fixme: ⚠️️ Also set accesibility-id maybe?
     * - Fixme: ⚠️️ Mark it as macOS only, is it only for macOS? confirm?
@@ -31,14 +32,14 @@ extension MenuItems {
       }
    }
    /**
-    * Generates a stacked view containing buttons for each `MenuItem` in the collection, suitable for macOS platforms.
-    * - Description: This method generates a view containing a vertical stack
-    *                of buttons for each `MenuItem` in the collection. Each button
-    *                corresponds to a `MenuItem` and triggers the associated action
-    *                when clicked. This method is designed for macOS platforms
-    *                where a vertical stack of buttons is a common UI pattern for
-    *                menus.
-    * - Note: This method is designed to be used within a macOS-specific context and is intended to display a vertical stack of buttons, each corresponding to a `MenuItem`.
+    * - Abstract: Generates a stacked view with buttons for each `MenuItem`,
+    *             suitable for macOS platforms.
+    * - Description: This method creates a view with a vertical stack of buttons.
+    *                Each button corresponds to a `MenuItem` and triggers the
+    *                associated action when clicked. Designed for macOS platforms,
+    *                where a vertical stack of buttons is a common UI pattern.
+    * - Note: This method is for macOS-specific context, intended to display a
+    *         vertical stack of buttons, each linked to a `MenuItem`.
     * - Fixme: ⚠️️ Try to make popOver call work on center of view
     * - Parameters:
     *   - showMenu: An optional binding to a boolean value that controls the visibility of the menu.
@@ -57,11 +58,12 @@ extension MenuItems {
    /**
     * Needed or else return is opaque in foreach-element-and-index etc
     * - Description: This function generates a button for a given `MenuItem`.
-    *                The button, when clicked, triggers the action associated with
-    *                the `MenuItem`. If a `showMenu` binding is provided, the
-    *                visibility of the menu is controlled based on the state of
-    *                this binding. The function also supports the addition of a
-    *                keyboard shortcut for the button if specified in the `MenuItem`.
+    *                The button, when clicked, triggers the action associated
+    *                with the `MenuItem`. If a `showMenu` binding is provided,
+    *                the visibility of the menu is controlled based on the state
+    *                of this binding. The function also supports the addition of
+    *                a keyboard shortcut for the button if specified in the
+    *                `MenuItem`.
     * - Fixme: ⚠️️ Strange that icon isn't left aligned when rendered, try to research it, doesn't seem to be any info on this easily available
     * - Fixme: ⚠️️ We could add `accessevbilityIdentifier` to the button based on some id in menuItem model?
     * - Fixme: ⚠️️ Maybe only add keyboard shortcut for debug mode for UITesting etc? 👈

@@ -23,12 +23,16 @@ public struct PopupMenu: NSViewRepresentable {
    @Binding public var showMenu: Bool
    /**
     * The items to be displayed in the popup menu.
-    * - Description: A collection of menu item representations that define the actions available in the popup menu.
+    * - Description: A collection of menu item representations that define
+    *                the actions available in the popup menu.
     */
    public var menuItems: PopupMenuItems
    /**
-    * - Description: This optional parameter specifies the position where the popup menu will be displayed. If not provided, the menu will be displayed at the current mouse position.
-    * - Note: We have to use GeomReader to get this working by maybe passing the frame and mid point etc, or else just use .zero
+    * - Description: This optional parameter specifies the position where the
+    *                popup menu will be displayed. If not provided, the menu
+    *                will be displayed at the current mouse position.
+    * - Note: We have to use GeomReader to get this working by maybe passing
+    *         the frame and mid point etc, or else just use .zero
     * - Note: If nil we use mousePoint
     */
    public var menuPosition: NSPoint? = .zero
@@ -52,7 +56,9 @@ public struct PopupMenu: NSViewRepresentable {
     *                true, creates and displays the popup menu at the specified
     *                position. After displaying the menu, it resets `showMenu` to
     *                false to hide the menu.
-    * - Note: We can also use instead of popup: `NSMenu.popUpContextMenu(menu, with: NSApp.currentEvent ?? NSEvent(), for: nsView)`
+    * - Note: We can also use instead of popup:
+    *         `NSMenu.popUpContextMenu(menu, with: NSApp.currentEvent ?? NSEvent(),
+    *         for: nsView)`
     * - Parameters:
     *   - nsView: The NSView that the popup menu is being displayed in.
     *   - context: The context in which the NSView is being updated.
@@ -120,7 +126,8 @@ public struct PopupMenu: NSViewRepresentable {
        */
       public var callback: CallBack?
       /**
-       * Handles the menu item click event by calling the callback function with the title of the clicked menu item.
+       * - Abstract: Handles the menu item click event by calling the
+       *             callback function with the title of the clicked menu item.
        * - Description: This method is triggered when a menu item is clicked.
        *                It retrieves the title of the clicked menu item and passes
        *                it to the callback function, if the callback is set.

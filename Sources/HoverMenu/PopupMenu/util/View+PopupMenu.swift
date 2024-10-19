@@ -7,7 +7,8 @@ import SwiftUI
  *               `popupMenu` function simplifies the process of creating and
  *               managing popup menus by handling the overlay and positioning of
  *               the menu items.
- * - Note: This extension is used in `PopupMenuWrapper` to provide a platform-agnostic way of displaying popup menus.
+ * - Note: This extension is used in `PopupMenuWrapper` to provide a
+ *         platform-agnostic way of displaying popup menus.
  */
 extension View { // ⚠️️ was Button extension
    /**
@@ -41,7 +42,9 @@ extension View { // ⚠️️ was Button extension
 extension View { // ⚠️️ Was Button extension etc
    /**
     * Attaches a popup menu to the view.
-    * - Description: This function overlays a popup menu on the view when `isPresented` is true. The menu is populated with `items` and positioned at the default position.
+    * - Description: This function overlays a popup menu on the view when
+    *                `isPresented` is true. The menu is populated with `items`
+    *                and positioned at the default position.
     * - Parameters:
     *   - isPresented: A binding to a boolean that controls the visibility of the popup menu.
     *   - items: An array of items to be displayed in the popup menu.

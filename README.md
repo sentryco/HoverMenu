@@ -63,6 +63,8 @@ dependencies: [
 - Add preview for macOS  
 - Rename repo to PopupMenu or PopoverMenu ?
 - Refactoring and Code Cleanup
-- Platform Compatibility and Feature Parity
 - Testing and Documentation (Improving tests and documentation can help maintain high code quality and ease future development efforts.)
-- Code Organization and Structure (Some parts of the codebase could benefit from better organization to improve readability and maintainability.)
+- Code Organization and Structure: Separation of Concerns: Some files contain multiple responsibilities, which could be separated into more focused components or extensions. For example, the PopupMenu.swift file handles UI interactions and also manages state and UI updates, which could be more cleanly separated.
+- Refactoring and Code Cleanup: PopupMenu and EditMenu Classes: There are multiple Fixme comments indicating areas that need attention, such as refactoring and cleaning up the code. For instance, in PopupMenu.swift and EditMenu+Coordinator.swift, there are suggestions to investigate and possibly refactor the way menus are presented and how gestures are handled.
+- Remove unit-tests, add uitests
+- UI/UX Enhancements: User Interface Polish: Enhancing the user interface, such as adding icons to menu items or improving the layout and responsiveness of UI components.
