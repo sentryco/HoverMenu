@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/HoverMenu/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/HoverMenu/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/ea7a5444-469e-4e95-91f2-9cb372fa5db3)](https://codebeat.co/projects/github-com-sentryco-hovermenu-main)
 
 # HoverMenu
 
