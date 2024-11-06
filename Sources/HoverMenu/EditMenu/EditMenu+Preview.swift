@@ -10,14 +10,14 @@ import SwiftUI
          [
             UIAction(
                title: "Action 1",
-               image: nil)               { _ in
+               image: nil) { _ in
                   print("Action 1 selected")
-               },
+            },
             UIAction(
                title: "Action 2",
-               image: nil)               { _ in
+               image: nil) { _ in
                   print("Action 2 selected")
-               },
+            },
             UIAction(title: "Copy to clipboard") { _ in
                Swift.print("Copy to clipboard")
             }
