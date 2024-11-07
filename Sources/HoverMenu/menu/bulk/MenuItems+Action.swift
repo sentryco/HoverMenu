@@ -19,7 +19,7 @@ extension MenuItems {
       self.map { (menuDataItem: MenuItem) in
          .init( // Initializes a UIAction with the title of the MenuItem and a handler that calls the action of the MenuItem
             title: menuDataItem.title
-         ) { // This line closes the initialization of UIAction with the title provided by the MenuItem. _ in // This closure is triggered when the UIAction is selected, executing the associated MenuItem's action.
+         ) { _ in // This line closes the initialization of UIAction with the title provided by the MenuItem. _ in // This closure is triggered when the UIAction is selected, executing the associated MenuItem's action.
                menuDataItem.action()
          }
       }
